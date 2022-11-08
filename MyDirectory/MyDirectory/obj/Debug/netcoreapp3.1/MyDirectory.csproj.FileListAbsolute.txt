@@ -1,0 +1,16 @@
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\bin\Debug\netcoreapp3.1\MyDirectory.exe
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\bin\Debug\netcoreapp3.1\MyDirectory.deps.json
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\bin\Debug\netcoreapp3.1\MyDirectory.runtimeconfig.json
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\bin\Debug\netcoreapp3.1\MyDirectory.runtimeconfig.dev.json
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\bin\Debug\netcoreapp3.1\MyDirectory.dll
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\bin\Debug\netcoreapp3.1\MyDirectory.pdb
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.csprojAssemblyReference.cache
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.Form1.resources
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.csproj.GenerateResource.cache
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.AssemblyInfoInputs.cache
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.AssemblyInfo.cs
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.csproj.CoreCompileInputs.cache
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.dll
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.pdb
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.genruntimeconfig.cache
+C:\Users\Kirill\Desktop\university\ОС\Directory\MyDirectory\MyDirectory\obj\Debug\netcoreapp3.1\MyDirectory.Properties.Resources.resources
