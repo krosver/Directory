@@ -8,7 +8,7 @@ namespace MyDirectory
 {
     class File : MyObject
     {
-        public File(string name, MyObject parent, int weight) : base(name, parent)
+        public File(string name, Folder parent, int weight) : base(name, parent)
         {
             this._Weight = weight;
         }

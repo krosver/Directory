@@ -105,7 +105,7 @@ namespace MyDirectory
             {
                 arr[0] = obj._Name;
                 var a = obj.GetType().ToString();
-                if (obj.GetType().ToString() == "MyDirectory.Folder")
+                if (obj is Folder )
                 {
 
                     arr[1] = "Folder";
@@ -135,16 +135,17 @@ namespace MyDirectory
         }
         private void TreeNodes(Folder Parent, TreeNodeCollection nodes)
         {
-            var Children = Parent.Children;
-            for (int i = 0; i < Children.Count; i++)
+            var Children = Parent.Return_Children();
+            foreach (MyObject child in Children)
             {
                 int CountNodes = 0;
-                if (Children[i].GetType().ToString() == "MyDirectory.Folder")
+                if (child is Folder)
                 {
-                    nodes.Add(Children[i]._Name);
-                    TreeNodes(Children[i] as Folder, nodes[CountNodes].Nodes);
+                    nodes.Add(child._Name);
+                    TreeNodes(child as Folder, nodes[CountNodes].Nodes);
                     CountNodes++;
                 }
+
             }
         }
 
@@ -152,7 +153,7 @@ namespace MyDirectory
         {
             var index = DirectoryList.FocusedItem.Index;
             MyObject child = ActiveFolder.Return_Children()[index];
-            if (child.GetType().ToString() == "MyDirectory.Folder")
+            if (child is Folder)
             {
                 ActiveFolder = child as Folder;
                 UpdateDirectoryList();
@@ -211,9 +212,7 @@ namespace MyDirectory
                 var name = child._Name + " — Копия " + child.CountIs;
                 child.CountIs++;
 
-                //string name  ;
-
-                if (child.GetType().ToString() == "MyDirectory.Folder")
+                if (child is Folder)
                 {
                     Folder select = child as Folder;
                     try
@@ -247,6 +246,10 @@ namespace MyDirectory
                 }
             }
 
+        }
+        private void DuplicateFunction()
+        {
+            
         }
 
         private void Rename_bt_Click(object sender, EventArgs e)
@@ -316,7 +319,7 @@ namespace MyDirectory
             Folder folder = Parent;
             foreach (MyObject obj in Parent.Children)
             {
-                if (obj.GetType().ToString() == "MyDirectory.Folder")
+                if (obj is Folder )
                 {
                     Folder current = obj as Folder;
                     if (current._Name == name)

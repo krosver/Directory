@@ -96,5 +96,6 @@ namespace MyDirectory
             this._Name = name;
             this._Path = _Parent._Path + "\\" + _Name;
         }
+
     }
 }
