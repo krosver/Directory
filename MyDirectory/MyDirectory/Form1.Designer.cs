@@ -29,18 +29,18 @@ namespace MyDirectory
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Name");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Weight");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Type");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Sort by", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("File1");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("File2");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Folder", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Name");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Weight");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Type");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Sort by", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("File1");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("File2");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Folder", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode13});
             this.CreatePanel = new System.Windows.Forms.Panel();
             this.Create_bt = new System.Windows.Forms.Button();
             this.Rename_bt = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@ namespace MyDirectory
             // 
             // CreatePanel
             // 
-            this.CreatePanel.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.CreatePanel.BackColor = System.Drawing.Color.NavajoWhite;
             this.CreatePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CreatePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CreatePanel.Controls.Add(this.Create_bt);
@@ -83,21 +83,30 @@ namespace MyDirectory
             // 
             // Create_bt
             // 
+            this.Create_bt.BackColor = System.Drawing.Color.NavajoWhite;
             this.Create_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Create_bt.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Create_bt.FlatAppearance.BorderColor = System.Drawing.Color.NavajoWhite;
+            this.Create_bt.FlatAppearance.BorderSize = 0;
+            this.Create_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OldLace;
+            this.Create_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Create_bt.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Create_bt.Location = new System.Drawing.Point(24, 24);
+            this.Create_bt.Margin = new System.Windows.Forms.Padding(0);
             this.Create_bt.Name = "Create_bt";
             this.Create_bt.Size = new System.Drawing.Size(100, 42);
             this.Create_bt.TabIndex = 3;
             this.Create_bt.Text = "Create";
-            this.Create_bt.UseVisualStyleBackColor = true;
+            this.Create_bt.UseVisualStyleBackColor = false;
             this.Create_bt.Click += new System.EventHandler(this.Create_bt_Click);
             // 
             // Rename_bt
             // 
             this.Rename_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Rename_bt.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Rename_bt.FlatAppearance.BorderSize = 0;
+            this.Rename_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OldLace;
+            this.Rename_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Rename_bt.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Rename_bt.Location = new System.Drawing.Point(247, 24);
             this.Rename_bt.Name = "Rename_bt";
@@ -111,6 +120,9 @@ namespace MyDirectory
             // 
             this.Delete_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Delete_bt.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Delete_bt.FlatAppearance.BorderSize = 0;
+            this.Delete_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OldLace;
+            this.Delete_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_bt.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Delete_bt.Location = new System.Drawing.Point(35, 24);
             this.Delete_bt.Name = "Delete_bt";
@@ -137,6 +149,7 @@ namespace MyDirectory
             // 
             this.SortPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.SortPanel.BackColor = System.Drawing.Color.NavajoWhite;
             this.SortPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SortPanel.Controls.Add(this.Name_tb);
             this.SortPanel.Controls.Add(this.treeView1);
@@ -157,29 +170,29 @@ namespace MyDirectory
             // 
             // treeView1
             // 
-            this.treeView1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.treeView1.BackColor = System.Drawing.Color.NavajoWhite;
             this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Margin = new System.Windows.Forms.Padding(0);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Name";
-            treeNode1.Text = "Name";
-            treeNode2.Name = "Weight";
-            treeNode2.Text = "Weight";
-            treeNode3.Name = "Type";
-            treeNode3.Text = "Type";
-            treeNode4.Name = "Sort by";
-            treeNode4.Text = "Sort by";
+            treeNode8.Name = "Name";
+            treeNode8.Text = "Name";
+            treeNode9.Name = "Weight";
+            treeNode9.Text = "Weight";
+            treeNode10.Name = "Type";
+            treeNode10.Text = "Type";
+            treeNode11.Name = "Sort by";
+            treeNode11.Text = "Sort by";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode11});
             this.treeView1.Size = new System.Drawing.Size(147, 91);
             this.treeView1.TabIndex = 5;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
             // 
             // MenuPanel
             // 
-            this.MenuPanel.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.MenuPanel.BackColor = System.Drawing.Color.NavajoWhite;
             this.MenuPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MenuPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MenuPanel.Controls.Add(this.Duplicate_bt);
@@ -197,6 +210,9 @@ namespace MyDirectory
             // 
             this.Duplicate_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Duplicate_bt.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Duplicate_bt.FlatAppearance.BorderSize = 0;
+            this.Duplicate_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OldLace;
+            this.Duplicate_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Duplicate_bt.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Duplicate_bt.Location = new System.Drawing.Point(141, 24);
             this.Duplicate_bt.Name = "Duplicate_bt";
@@ -299,14 +315,14 @@ namespace MyDirectory
             this.treeDirectory.Location = new System.Drawing.Point(0, 0);
             this.treeDirectory.Margin = new System.Windows.Forms.Padding(0);
             this.treeDirectory.Name = "treeDirectory";
-            treeNode5.Name = "File1";
-            treeNode5.Text = "File1";
-            treeNode6.Name = "File2";
-            treeNode6.Text = "File2";
-            treeNode7.Name = "Folder";
-            treeNode7.Text = "Folder";
+            treeNode12.Name = "File1";
+            treeNode12.Text = "File1";
+            treeNode13.Name = "File2";
+            treeNode13.Text = "File2";
+            treeNode14.Name = "Folder";
+            treeNode14.Text = "Folder";
             this.treeDirectory.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7});
+            treeNode14});
             this.treeDirectory.Size = new System.Drawing.Size(195, 514);
             this.treeDirectory.TabIndex = 0;
             this.treeDirectory.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeDirectory_MouseDoubleClick);

@@ -28,13 +28,15 @@ namespace MyDirectory
             Root = new Folder();
             Folder C = new Folder("C:", Root);
             ActiveFolder = Root;
+
+
             MenuPanel.Enabled = false;
+            CreatePanel.Enabled = false;
             Name_tb.Enabled = false;
             Name_tb.Visible = false;
 
 
-            treeView1.ExpandAll();
-
+            treeView1.ExpandAll(); // открыть меню сортировки
 
             DirectoryList.View = View.Details;
             DirectoryList.FullRowSelect = true; // Получает или задает значение, указывающее, выбираются ли при щелчке элемента все его подэлементы.
@@ -93,10 +95,12 @@ namespace MyDirectory
             if (ActiveFolder != Root)
             {
                 MenuPanel.Enabled = true;
+                CreatePanel.Enabled = true;
             }
             else
             {
                 MenuPanel.Enabled = false;
+                CreatePanel.Enabled = false;
             }
             Path_tb.Text = ActiveFolder._Path;
             DirectoryList.Items.Clear();
