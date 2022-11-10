@@ -51,7 +51,10 @@ namespace MyDirectory
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.Duplicate_bt = new System.Windows.Forms.Button();
+            this.Search_ListView = new System.Windows.Forms.ListView();
             this.DownPanel = new System.Windows.Forms.Panel();
+            this.search_label = new System.Windows.Forms.Label();
+            this.Search_tb = new System.Windows.Forms.TextBox();
             this.Up_bt = new System.Windows.Forms.Button();
             this.Path_tb = new System.Windows.Forms.TextBox();
             this.createBox = new System.Windows.Forms.GroupBox();
@@ -161,7 +164,7 @@ namespace MyDirectory
             // 
             // Name_tb
             // 
-            this.Name_tb.Location = new System.Drawing.Point(225, 32);
+            this.Name_tb.Location = new System.Drawing.Point(540, 32);
             this.Name_tb.Name = "Name_tb";
             this.Name_tb.Size = new System.Drawing.Size(125, 27);
             this.Name_tb.TabIndex = 6;
@@ -222,12 +225,25 @@ namespace MyDirectory
             this.Duplicate_bt.UseVisualStyleBackColor = true;
             this.Duplicate_bt.Click += new System.EventHandler(this.Duplicate_bt_Click);
             // 
+            // Search_ListView
+            // 
+            this.Search_ListView.HideSelection = false;
+            this.Search_ListView.Location = new System.Drawing.Point(1041, 108);
+            this.Search_ListView.Name = "Search_ListView";
+            this.Search_ListView.Size = new System.Drawing.Size(95, 27);
+            this.Search_ListView.TabIndex = 7;
+            this.Search_ListView.UseCompatibleStateImageBehavior = false;
+            this.Search_ListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Search_ListView_MouseDoubleClick);
+            // 
             // DownPanel
             // 
             this.DownPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DownPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.DownPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.DownPanel.Controls.Add(this.Search_ListView);
+            this.DownPanel.Controls.Add(this.search_label);
+            this.DownPanel.Controls.Add(this.Search_tb);
             this.DownPanel.Controls.Add(this.Up_bt);
             this.DownPanel.Controls.Add(this.Path_tb);
             this.DownPanel.Controls.Add(this.createBox);
@@ -239,13 +255,32 @@ namespace MyDirectory
             this.DownPanel.Size = new System.Drawing.Size(1246, 514);
             this.DownPanel.TabIndex = 8;
             // 
+            // search_label
+            // 
+            this.search_label.AutoSize = true;
+            this.search_label.Location = new System.Drawing.Point(1006, 4);
+            this.search_label.Name = "search_label";
+            this.search_label.Size = new System.Drawing.Size(67, 20);
+            this.search_label.TabIndex = 10;
+            this.search_label.Text = "Поиск в:";
+            // 
+            // Search_tb
+            // 
+            this.Search_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_tb.Location = new System.Drawing.Point(1074, 0);
+            this.Search_tb.Name = "Search_tb";
+            this.Search_tb.Size = new System.Drawing.Size(169, 27);
+            this.Search_tb.TabIndex = 9;
+            this.Search_tb.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Search_tb_MouseClick);
+            this.Search_tb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_tb_KeyDown);
+            // 
             // Up_bt
             // 
             this.Up_bt.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Up_bt.Location = new System.Drawing.Point(194, 0);
             this.Up_bt.Margin = new System.Windows.Forms.Padding(0);
             this.Up_bt.Name = "Up_bt";
-            this.Up_bt.Size = new System.Drawing.Size(46, 28);
+            this.Up_bt.Size = new System.Drawing.Size(46, 27);
             this.Up_bt.TabIndex = 8;
             this.Up_bt.Text = "Up";
             this.Up_bt.UseVisualStyleBackColor = false;
@@ -256,10 +291,10 @@ namespace MyDirectory
             this.Path_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Path_tb.Location = new System.Drawing.Point(240, 1);
+            this.Path_tb.Location = new System.Drawing.Point(240, 0);
             this.Path_tb.Margin = new System.Windows.Forms.Padding(0);
             this.Path_tb.Name = "Path_tb";
-            this.Path_tb.Size = new System.Drawing.Size(1006, 27);
+            this.Path_tb.Size = new System.Drawing.Size(761, 27);
             this.Path_tb.TabIndex = 7;
             // 
             // createBox
@@ -370,6 +405,9 @@ namespace MyDirectory
         private System.Windows.Forms.TextBox Path_tb;
         private System.Windows.Forms.Button Up_bt;
         private System.Windows.Forms.TextBox Name_tb;
+        private System.Windows.Forms.TextBox Search_tb;
+        private System.Windows.Forms.Label search_label;
+        private System.Windows.Forms.ListView Search_ListView;
     }
 }
 

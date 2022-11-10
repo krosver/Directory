@@ -32,8 +32,8 @@ namespace MyDirectory
 
             MenuPanel.Enabled = false;
             CreatePanel.Enabled = false;
-            Name_tb.Enabled = false;
-            Name_tb.Visible = false;
+            Hide(Name_tb);
+            Hide(Search_ListView);
 
 
             treeView1.ExpandAll(); // открыть меню сортировки
@@ -42,19 +42,32 @@ namespace MyDirectory
             DirectoryList.FullRowSelect = true; // Получает или задает значение, указывающее, выбираются ли при щелчке элемента все его подэлементы.
             DirectoryList.MultiSelect = true;
 
+            Search_ListView.View = View.Details;
+            Search_ListView.FullRowSelect = true;
+            Search_ListView.MultiSelect = false;
+
             DirectoryList.Columns.Add("Name", Convert.ToInt32(DirectoryList.Width * 0.3));      //Add column header
             DirectoryList.Columns.Add("Type", Convert.ToInt32(DirectoryList.Width * 0.1));      //Add column header
             DirectoryList.Columns.Add("Weight", Convert.ToInt32(DirectoryList.Width * 0.1));    //Add column header
-            
+
+            Search_ListView.Columns.Add("Name", Convert.ToInt32(DirectoryList.Width * 0.3));      //Add column header
+            Search_ListView.Columns.Add("Type", Convert.ToInt32(DirectoryList.Width * 0.1));      //Add column header
+            Search_ListView.Columns.Add("Weight", Convert.ToInt32(DirectoryList.Width * 0.1));
+
             ImageList imageListSmall = new ImageList();
             imageListSmall.Images.Add(Bitmap.FromFile(@"Pictures\folder2.png"));
             imageListSmall.Images.Add(Bitmap.FromFile(@"Pictures\file2.png"));
             imageListSmall.ImageSize = new Size(32, 32);
 
             DirectoryList.SmallImageList = imageListSmall;
+            Search_ListView.SmallImageList = imageListSmall;
             UpdateDirectoryList();
         }
-
+        private void Hide(Control obj)
+        {
+            obj.Visible = false;
+            obj.Enabled = false;
+        }
 
         private void Create_bt_Click(object sender, EventArgs e)
         {
@@ -67,8 +80,7 @@ namespace MyDirectory
         }
         private void Hide_Drop_List()
         {
-            createBox.Enabled = false;
-            createBox.Visible = false;
+            Hide(createBox);
         }
         private void createBox_Leave(object sender, EventArgs e)
         {
@@ -102,6 +114,7 @@ namespace MyDirectory
                 MenuPanel.Enabled = false;
                 CreatePanel.Enabled = false;
             }
+            Search_tb.Text = $"{ActiveFolder._Name}";
             Path_tb.Text = ActiveFolder._Path;
             DirectoryList.Items.Clear();
             string[] arr = new string[3];
@@ -319,8 +332,7 @@ namespace MyDirectory
                     MessageBox.Show(exception.Message);
                 }
                 Name_tb.Location = new Point(this.Width, 0);
-                Name_tb.Enabled = false;
-                Name_tb.Visible = false;
+                Hide(Name_tb);
                 UpdateDirectoryList();
             }
         }
@@ -388,7 +400,98 @@ namespace MyDirectory
             }
 
         }
+        List<MyObject> searchList;
+        private void Search_tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchList = new List<MyObject>();
+                foreach (MyObject obj in ActiveFolder.Return_Children())
+                {
+                    Search(obj, Search_tb.Text);
+                }
+                SearchDirectory();
+            }
+        }
+        private void Search(MyObject obj, string Name)
+        {
+            if (obj is Folder)
+            {
+                foreach (MyObject child in (obj as Folder).Return_Children())
+                {
+                    Search(child, Search_tb.Text);
+                }
+            }
+            if (obj._Name.ToLower().Contains(Name.ToLower()))
+            {
+                searchList.Add(obj);
+            }
+        }
+        private void SearchDirectory()
+        {
+            Hide(DirectoryList);
+            Search_ListView.Size = DirectoryList.Size;
+            Search_ListView.Location = DirectoryList.Location;
+
+            int indexImage;
+            MenuPanel.Enabled = false;
+            CreatePanel.Enabled = false;
+
+            Path_tb.Text = "";
+            Search_ListView.Items.Clear();
+            string[] arr = new string[3];
+            foreach (MyObject obj in searchList)
+            {
+                arr[0] = obj._Name;
+                var a = obj.GetType().ToString();
+                if (obj is Folder)
+                {
+
+                    arr[1] = "Folder";
+                    arr[2] = "";
+                    indexImage = 0;
+                }
+                else
+                {
+                    File file = obj as File;
+                    arr[1] = "File";
+                    arr[2] = file._Weight.ToString();
+                    indexImage = 1;
+                }
+                Search_ListView.Items.Add(arr[0], indexImage);
+                Search_ListView.Items[DirectoryList.Items.Count - 1].SubItems.Add(arr[1]);
+                Search_ListView.Items[DirectoryList.Items.Count - 1].SubItems.Add(arr[2]);
+
+            }
+
+            Search_ListView.Visible = true;
+            Search_ListView.Enabled = true;
+        }
 
 
+
+        private void Search_tb_MouseClick(object sender, MouseEventArgs e)
+        {
+            Search_tb.SelectAll();
+        }
+
+        private void Search_ListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var index = Search_ListView.FocusedItem.Index;
+            MyObject child = searchList[index];
+            if (child is Folder)
+            {
+                ActiveFolder = child as Folder;
+                UpdateDirectoryList();
+            }
+            else
+            {
+                ActiveFolder = child._Parent as Folder;
+                UpdateDirectoryList();
+            }
+            DirectoryList.Visible = true;
+            DirectoryList.Enabled = true;
+            Hide(Search_ListView);
+        }
     }
 }
