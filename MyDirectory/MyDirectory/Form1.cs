@@ -221,10 +221,9 @@ namespace MyDirectory
                         List<MyObject> list = new List<MyObject>();
                         foreach (MyObject obj in select.Return_Children())
                         {
-                            list.Add(obj);
+                            DuplicateFunction(obj, obj._Name, Duplicate);
                         }
-                        Duplicate.Children = list;
-                        UpdateDirectoryList();
+
                     }
                     catch (Exception excep)
                     {
@@ -237,19 +236,49 @@ namespace MyDirectory
                     try
                     {
                         MyObject newFile = new File(name, ActiveFolder, select._Weight);
-                        UpdateDirectoryList();
                     }
                     catch (Exception excep)
                     {
                         MessageBox.Show(excep.Message);
                     }
                 }
+
+                UpdateDirectoryList();
             }
 
         }
-        private void DuplicateFunction()
+        private void DuplicateFunction(MyObject child, string name, Folder parent)
         {
-            
+            if (child is Folder)
+            {
+                Folder select = child as Folder;
+                try
+                {
+                    Folder Duplicate = new Folder(name, parent);
+                    List<MyObject> list = new List<MyObject>();
+                    foreach (MyObject obj in select.Return_Children())
+                    {
+                        DuplicateFunction(obj, name, Duplicate );
+                    }
+
+                }
+                catch (Exception excep)
+                {
+                    MessageBox.Show(excep.Message);
+                }
+            }
+            else
+            {
+                File select = child as File;
+                try
+                {
+                    MyObject newFile = new File(name, parent, select._Weight);
+                }
+                catch (Exception excep)
+                {
+                    MessageBox.Show(excep.Message);
+                }
+            }
         }
 
         private void Rename_bt_Click(object sender, EventArgs e)
