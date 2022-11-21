@@ -34,6 +34,7 @@ namespace MyDirectory
             CreatePanel.Enabled = false;
             Hide(Name_tb);
             Hide(Search_ListView);
+            Hide(RightMouse_panel);
 
 
             treeView1.ExpandAll(); // открыть меню сортировки
@@ -468,8 +469,6 @@ namespace MyDirectory
             Search_ListView.Enabled = true;
         }
 
-
-
         private void Search_tb_MouseClick(object sender, MouseEventArgs e)
         {
             Search_tb.SelectAll();
@@ -493,5 +492,20 @@ namespace MyDirectory
             DirectoryList.Enabled = true;
             Hide(Search_ListView);
         }
+
+        private void DirectoryList_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (DirectoryList.SelectedItems.Count != 0)
+            {
+                if (e.Button == MouseButtons.Right) // правая кнопка мыши
+                {
+                    RightMouse_panel.Location = new Point(e.X+200, e.Y+30);
+            
+                    RightMouse_panel.Enabled = true;
+                    RightMouse_panel.Visible = true;
+                }
+            }
+        }
+
     }
 }

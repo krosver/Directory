@@ -29,18 +29,18 @@ namespace MyDirectory
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Name");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Weight");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Type");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Sort by", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9,
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("File1");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("File2");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Folder", new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode13});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Name");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Weight");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Type");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Sort by", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("File1");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("File2");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Folder", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6});
             this.CreatePanel = new System.Windows.Forms.Panel();
             this.Create_bt = new System.Windows.Forms.Button();
             this.Rename_bt = new System.Windows.Forms.Button();
@@ -53,6 +53,13 @@ namespace MyDirectory
             this.Duplicate_bt = new System.Windows.Forms.Button();
             this.Search_ListView = new System.Windows.Forms.ListView();
             this.DownPanel = new System.Windows.Forms.Panel();
+            this.RightMouse_panel = new System.Windows.Forms.Panel();
+            this.RM_rename_bt = new System.Windows.Forms.Button();
+            this.RM_duplicate_bt = new System.Windows.Forms.Button();
+            this.RM_cut_bt = new System.Windows.Forms.Button();
+            this.RM_copy_bt = new System.Windows.Forms.Button();
+            this.RM_open_bt = new System.Windows.Forms.Button();
+            this.RM_delete_bt = new System.Windows.Forms.Button();
             this.search_label = new System.Windows.Forms.Label();
             this.Search_tb = new System.Windows.Forms.TextBox();
             this.Up_bt = new System.Windows.Forms.Button();
@@ -67,6 +74,7 @@ namespace MyDirectory
             this.SortPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             this.DownPanel.SuspendLayout();
+            this.RightMouse_panel.SuspendLayout();
             this.createBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,7 +172,7 @@ namespace MyDirectory
             // 
             // Name_tb
             // 
-            this.Name_tb.Location = new System.Drawing.Point(540, 32);
+            this.Name_tb.Location = new System.Drawing.Point(465, 32);
             this.Name_tb.Name = "Name_tb";
             this.Name_tb.Size = new System.Drawing.Size(125, 27);
             this.Name_tb.TabIndex = 6;
@@ -179,16 +187,16 @@ namespace MyDirectory
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Margin = new System.Windows.Forms.Padding(0);
             this.treeView1.Name = "treeView1";
-            treeNode8.Name = "Name";
-            treeNode8.Text = "Name";
-            treeNode9.Name = "Weight";
-            treeNode9.Text = "Weight";
-            treeNode10.Name = "Type";
-            treeNode10.Text = "Type";
-            treeNode11.Name = "Sort by";
-            treeNode11.Text = "Sort by";
+            treeNode1.Name = "Name";
+            treeNode1.Text = "Name";
+            treeNode2.Name = "Weight";
+            treeNode2.Text = "Weight";
+            treeNode3.Name = "Type";
+            treeNode3.Text = "Type";
+            treeNode4.Name = "Sort by";
+            treeNode4.Text = "Sort by";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode11});
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(147, 91);
             this.treeView1.TabIndex = 5;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -241,6 +249,7 @@ namespace MyDirectory
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DownPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.DownPanel.Controls.Add(this.RightMouse_panel);
             this.DownPanel.Controls.Add(this.Search_ListView);
             this.DownPanel.Controls.Add(this.search_label);
             this.DownPanel.Controls.Add(this.Search_tb);
@@ -255,8 +264,84 @@ namespace MyDirectory
             this.DownPanel.Size = new System.Drawing.Size(1246, 514);
             this.DownPanel.TabIndex = 8;
             // 
+            // RightMouse_panel
+            // 
+            this.RightMouse_panel.Controls.Add(this.RM_rename_bt);
+            this.RightMouse_panel.Controls.Add(this.RM_duplicate_bt);
+            this.RightMouse_panel.Controls.Add(this.RM_cut_bt);
+            this.RightMouse_panel.Controls.Add(this.RM_copy_bt);
+            this.RightMouse_panel.Controls.Add(this.RM_open_bt);
+            this.RightMouse_panel.Controls.Add(this.RM_delete_bt);
+            this.RightMouse_panel.Location = new System.Drawing.Point(1041, 194);
+            this.RightMouse_panel.Margin = new System.Windows.Forms.Padding(0);
+            this.RightMouse_panel.Name = "RightMouse_panel";
+            this.RightMouse_panel.Size = new System.Drawing.Size(95, 174);
+            this.RightMouse_panel.TabIndex = 7;
+            // 
+            // RM_rename_bt
+            // 
+            this.RM_rename_bt.Location = new System.Drawing.Point(0, 145);
+            this.RM_rename_bt.Margin = new System.Windows.Forms.Padding(0);
+            this.RM_rename_bt.Name = "RM_rename_bt";
+            this.RM_rename_bt.Size = new System.Drawing.Size(94, 29);
+            this.RM_rename_bt.TabIndex = 5;
+            this.RM_rename_bt.Text = "Rename";
+            this.RM_rename_bt.UseVisualStyleBackColor = true;
+            // 
+            // RM_duplicate_bt
+            // 
+            this.RM_duplicate_bt.Location = new System.Drawing.Point(1, 116);
+            this.RM_duplicate_bt.Margin = new System.Windows.Forms.Padding(0);
+            this.RM_duplicate_bt.Name = "RM_duplicate_bt";
+            this.RM_duplicate_bt.Size = new System.Drawing.Size(94, 29);
+            this.RM_duplicate_bt.TabIndex = 4;
+            this.RM_duplicate_bt.Text = "Duplicate";
+            this.RM_duplicate_bt.UseVisualStyleBackColor = true;
+            // 
+            // RM_cut_bt
+            // 
+            this.RM_cut_bt.Location = new System.Drawing.Point(0, 58);
+            this.RM_cut_bt.Margin = new System.Windows.Forms.Padding(0);
+            this.RM_cut_bt.Name = "RM_cut_bt";
+            this.RM_cut_bt.Size = new System.Drawing.Size(94, 29);
+            this.RM_cut_bt.TabIndex = 3;
+            this.RM_cut_bt.Text = "Cut";
+            this.RM_cut_bt.UseVisualStyleBackColor = true;
+            // 
+            // RM_copy_bt
+            // 
+            this.RM_copy_bt.Location = new System.Drawing.Point(0, 29);
+            this.RM_copy_bt.Margin = new System.Windows.Forms.Padding(0);
+            this.RM_copy_bt.Name = "RM_copy_bt";
+            this.RM_copy_bt.Size = new System.Drawing.Size(94, 29);
+            this.RM_copy_bt.TabIndex = 2;
+            this.RM_copy_bt.Text = "Copy";
+            this.RM_copy_bt.UseVisualStyleBackColor = true;
+            // 
+            // RM_open_bt
+            // 
+            this.RM_open_bt.Location = new System.Drawing.Point(0, 0);
+            this.RM_open_bt.Margin = new System.Windows.Forms.Padding(0);
+            this.RM_open_bt.Name = "RM_open_bt";
+            this.RM_open_bt.Size = new System.Drawing.Size(94, 29);
+            this.RM_open_bt.TabIndex = 1;
+            this.RM_open_bt.Text = "Open";
+            this.RM_open_bt.UseVisualStyleBackColor = true;
+            // 
+            // RM_delete_bt
+            // 
+            this.RM_delete_bt.Location = new System.Drawing.Point(0, 87);
+            this.RM_delete_bt.Margin = new System.Windows.Forms.Padding(0);
+            this.RM_delete_bt.Name = "RM_delete_bt";
+            this.RM_delete_bt.Size = new System.Drawing.Size(94, 29);
+            this.RM_delete_bt.TabIndex = 0;
+            this.RM_delete_bt.Text = "Delete";
+            this.RM_delete_bt.UseVisualStyleBackColor = true;
+            // 
             // search_label
             // 
+            this.search_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.search_label.AutoSize = true;
             this.search_label.Location = new System.Drawing.Point(1006, 4);
             this.search_label.Name = "search_label";
@@ -266,7 +351,8 @@ namespace MyDirectory
             // 
             // Search_tb
             // 
-            this.Search_tb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_tb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Search_tb.Location = new System.Drawing.Point(1074, 0);
             this.Search_tb.Name = "Search_tb";
             this.Search_tb.Size = new System.Drawing.Size(169, 27);
@@ -343,6 +429,7 @@ namespace MyDirectory
             this.DirectoryList.TabIndex = 1;
             this.DirectoryList.UseCompatibleStateImageBehavior = false;
             this.DirectoryList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DirectoryList_MouseDoubleClick);
+            this.DirectoryList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DirectoryList_MouseDown);
             // 
             // treeDirectory
             // 
@@ -350,14 +437,14 @@ namespace MyDirectory
             this.treeDirectory.Location = new System.Drawing.Point(0, 0);
             this.treeDirectory.Margin = new System.Windows.Forms.Padding(0);
             this.treeDirectory.Name = "treeDirectory";
-            treeNode12.Name = "File1";
-            treeNode12.Text = "File1";
-            treeNode13.Name = "File2";
-            treeNode13.Text = "File2";
-            treeNode14.Name = "Folder";
-            treeNode14.Text = "Folder";
+            treeNode5.Name = "File1";
+            treeNode5.Text = "File1";
+            treeNode6.Name = "File2";
+            treeNode6.Text = "File2";
+            treeNode7.Name = "Folder";
+            treeNode7.Text = "Folder";
             this.treeDirectory.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode14});
+            treeNode7});
             this.treeDirectory.Size = new System.Drawing.Size(195, 514);
             this.treeDirectory.TabIndex = 0;
             this.treeDirectory.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeDirectory_MouseDoubleClick);
@@ -380,6 +467,7 @@ namespace MyDirectory
             this.MenuPanel.ResumeLayout(false);
             this.DownPanel.ResumeLayout(false);
             this.DownPanel.PerformLayout();
+            this.RightMouse_panel.ResumeLayout(false);
             this.createBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -408,6 +496,14 @@ namespace MyDirectory
         private System.Windows.Forms.TextBox Search_tb;
         private System.Windows.Forms.Label search_label;
         private System.Windows.Forms.ListView Search_ListView;
+        private System.Windows.Forms.Panel Right_mouse_panel;
+        private System.Windows.Forms.Panel RightMouse_panel;
+        private System.Windows.Forms.Button RM_rename_bt;
+        private System.Windows.Forms.Button RM_duplicate_bt;
+        private System.Windows.Forms.Button RM_cut_bt;
+        private System.Windows.Forms.Button RM_copy_bt;
+        private System.Windows.Forms.Button RM_open_bt;
+        private System.Windows.Forms.Button RM_delete_bt;
     }
 }
 
